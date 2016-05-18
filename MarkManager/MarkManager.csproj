@@ -115,14 +115,14 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Model.Clazz.datasource" />
+    <None Include="Properties\DataSources\Model.Course.datasource" />
+    <None Include="Properties\DataSources\Model.Student.datasource" />
+    <None Include="Properties\DataSources\Model.Teacher.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ServiceReference\MarkManager.ServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServiceReference\Service.wsdl" />
     <None Include="Service References\ServiceReference\Service.xsd">
       <SubType>Designer</SubType>
@@ -131,9 +131,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\Service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

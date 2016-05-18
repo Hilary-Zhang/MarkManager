@@ -10,11 +10,32 @@ using System.Text;
 [ServiceContract]
 public interface IService
 {
-	[OperationContract]
-	CompositeType GetDataUsingDataContract(CompositeType composite);
-
     [OperationContract]
     int Login(String username, String password, short type);
+
+    [OperationContract]
+    List<Model.Student> GetStudents();
+
+    [OperationContract]
+    int UpdateStudent(Model.Student student);
+
+    [OperationContract]
+    int DeleteStudent(int id);
+
+    [OperationContract]
+    List<Model.Student> FindStudent(String name);
+
+    [OperationContract]
+    List<Model.Teacher> GetTeachers();
+
+    [OperationContract]
+    int UpdateTeacher(Model.Teacher teacher);
+
+    [OperationContract]
+    int DeleteTeacher(int id);
+
+    [OperationContract]
+    List<Model.Teacher> FindTeachert(String name);
 
     [OperationContract]
     List<Model.Clazz> GetClazzs();
@@ -27,26 +48,18 @@ public interface IService
 
     [OperationContract]
     List<Model.Clazz> FindClazz(String name);
-}
 
-// 使用下面示例中说明的数据约定将复合类型添加到服务操作。
-[DataContract]
-public class CompositeType
-{
-	bool boolValue = true;
-	string stringValue = "Hello ";
+    [OperationContract]
+    List<Model.Course> GetCourses();
 
-	[DataMember]
-	public bool BoolValue
-	{
-		get { return boolValue; }
-		set { boolValue = value; }
-	}
+    [OperationContract]
+    int UpdateCourse(Model.Course course);
 
-	[DataMember]
-	public string StringValue
-	{
-		get { return stringValue; }
-		set { stringValue = value; }
-	}
+    [OperationContract]
+    int DeleteCourse(int id);
+
+    [OperationContract]
+    List<Model.Course> FindCourse(String name);
+
+
 }

@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarkManager"
         mc:Ignorable="d"
-        Title="StudentWindow" Height="300" Width="300">
+        Title="StudentWindow" Height="410" Width="700">
     <Grid>
-        
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="360" Margin="10,10,0,0" VerticalAlignment="Top" Width="670">
+            <TabItem Header="基本信息">
+                <Grid>
+                    <Grid Background="#FFE5E5E5">
+                        <TextBlock HorizontalAlignment="Left" Margin="60,60,0,0" TextWrapping="Wrap" Text="姓名:" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="60,120,0,0" TextWrapping="Wrap" Text="性别：" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="60,180,0,0" TextWrapping="Wrap" Text="班级：" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="300,100,0,0" TextWrapping="Wrap" Text="密码：" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="300,160,0,0" TextWrapping="Wrap" Text="email：" VerticalAlignment="Top"/>
+                        <Button x:Name="button" Content="修改" HorizontalAlignment="Left" Margin="570,300,0,0" VerticalAlignment="Top" Width="75"/>
+                        <TextBox x:Name="student_name" HorizontalAlignment="Left" Height="23" Margin="110,60,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="student_sex" HorizontalAlignment="Left" Height="23" Margin="110,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="student_clazz" HorizontalAlignment="Left" Height="23" Margin="110,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="student_password" HorizontalAlignment="Left" Height="23" Margin="350,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.492,2.87"/>
+                        <TextBox x:Name="student_email" HorizontalAlignment="Left" Height="23" Margin="350,160,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+                </Grid>
+                
+            </TabItem>
+            <TabItem Header="成绩查询">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,2"/>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

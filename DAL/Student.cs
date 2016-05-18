@@ -15,5 +15,60 @@ namespace DAL
             SqlDataReader reader = DBHelper.query("SELECT TOP 1 [id],[password] FROM [student] WHERE name='" + username + "'");
             return reader.Read() && reader["password"].ToString() == password ? Convert.ToInt32(reader["id"]) : 0;
         }
+
+        public static List<Model.Student> getStudents()
+        {
+            List<Model.Student> result = new List<Model.Student>();
+            SqlDataReader reader = DBHelper.query("SELECT [Student].[id],[Student].[name],[sex],[clazz_id],[Clazz].[name],[password],[email] FROM [Student] JOIN [Clazz] ON [Clazz].[id]=[Student].[clazz_id]");
+            while (reader.Read())
+            {
+                Model.Student model = new Model.Student();
+                model.id = reader.GetInt32(0);
+                model.name = reader.GetString(1);
+                model.sex = reader.GetString(2);
+                model.clazz = new Model.Clazz();
+                model.clazz.id = reader.GetInt32(3);
+                model.clazz.name = reader.GetString(4);
+                model.password = reader.GetString(5);
+                model.email = reader.GetString(6);
+                result.Add(model);
+            }
+            return result;
+        }
+
+        public static int updateStudent(Model.Student student)
+        {
+            return DBHelper.execute(String.Format("UPDATE [Student] SET [name]=N'{0}',[password]=N'{1}',email=N'{2}',sex={3},clazz_id={4} WHERE id={5}",student.name,student.password,student.email,student.sex,student.clazz.id,student.id));
+        }
+        public static int insertStudent(Model.Student student)
+        {
+            return DBHelper.execute(String.Format("INSERT INTO [Student] ([name],[password],[email],[sex],[clazz_id]) VALUES (N'{0}',N'{1}',N'{2}',N'{3}',{4})", student.name, student.password, student.email, student.sex, student.clazz.id));
+        }
+
+        public static int deleteStudent(int id)
+        {
+            return DBHelper.execute("DELETE FROM [student] WHERE id=" + id);
+        }
+
+        public static List<Model.Student> findStudent(String name)
+        {
+            List<Model.Student> result = new List<Model.Student>();
+            SqlDataReader reader = DBHelper.query("SELECT [Student].[id],[Student].[name],[sex],[clazz_id],[Clazz].[name],[password],[email] FROM [Student] JOIN [Clazz] WHERE [student].[name] LIKE N'%" + name + "%' or [Clazz].[name] LIKE N'%" + name + "%");
+            while (reader.Read())
+            {
+                Model.Student model = new Model.Student();
+                model.id = reader.GetInt32(0);
+                model.name = reader.GetString(1);
+                model.sex = reader.GetString(2);
+                model.clazz = new Model.Clazz();
+                model.clazz.id = reader.GetInt32(3);
+                model.clazz.name = reader.GetString(4);
+                model.password = reader.GetString(5);
+                model.email = reader.GetString(6);
+                result.Add(model);
+            }
+            return result;
+        }
+
     }
 }

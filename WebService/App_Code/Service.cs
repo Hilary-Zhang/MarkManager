@@ -12,22 +12,10 @@ public class Service : IService
 {
     public Service()
     {
-        DAL.DBHelper.connect("Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True");
+        DAL.DBHelper.connect("Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True");//数据库连接
     }
-    
-	public CompositeType GetDataUsingDataContract(CompositeType composite)
-	{
-		if (composite == null)
-		{
-			throw new ArgumentNullException("composite");
-		}
-		if (composite.BoolValue)
-		{
-			composite.StringValue += "Suffix";
-		}
-		return composite;
-	}
 
+    #region 登录接口
     public int Login(string username, string password,short type)
     {
         switch(type)
@@ -42,7 +30,67 @@ public class Service : IService
                 return 0;
         }
     }
+    #endregion
 
+    #region 学生接口
+    public List<Student> GetStudents()
+    {
+        return DAL.Student.getStudents();
+    }
+
+    public int UpdateStudent(Student student)
+    {
+        if (student.id == 0)
+        {
+            return DAL.Student.insertStudent(student);
+        }
+        else
+        {
+            return DAL.Student.updateStudent(student);
+        }
+    }
+
+    public int DeleteStudent(int id)
+    {
+        return DAL.Student.deleteStudent(id);
+    }
+
+    public List<Student> FindStudent(string name)
+    {
+        return DAL.Student.findStudent(name);
+    }
+    #endregion
+
+    #region 老师接口 
+    public List<Teacher> GetTeachers()
+    {
+        return DAL.Teacher.getTeachers();
+    }
+
+    public int UpdateTeacher(Teacher teacher)
+    {
+        if (teacher.id == 0)
+        {
+            return DAL.Teacher.insertTeacher(teacher);
+        }
+        else
+        {
+            return DAL.Teacher.updateTeacher(teacher );
+        }
+    }
+
+    public int DeleteTeacher(int id)
+    {
+        return DAL.Teacher.deleteTeacher(id);
+    }
+
+    public List<Teacher> FindTeachert(string name)
+    {
+        return DAL.Teacher.findTeacher(name);
+    }
+    #endregion
+
+    #region 班级接口
     public List<Clazz> GetClazzs()
     {
         return DAL.Clazz.getClazzs();
@@ -69,4 +117,35 @@ public class Service : IService
     {
         return DAL.Clazz.findClazz(name);
     }
+    #endregion
+ 
+    #region 课程接口
+    public List<Course> GetCourses()
+    {
+        return DAL.Course.getCourses();
+    }
+
+    public int UpdateCourse(Course course)
+    {
+        if (course.id == 0)
+        {
+            return DAL.Course.insertCourse(course);
+        }
+        else
+        {
+            return DAL.Course.updateCourse(course);
+        }
+    }
+
+    public int DeleteCourse(int id)
+    {
+        return DAL.Course.deleteCourse(id);
+    }
+
+    public List<Course> FindCourse(string name)
+    {
+        return DAL.Course.findCourse(name);
+    }
+
+    #endregion
 }

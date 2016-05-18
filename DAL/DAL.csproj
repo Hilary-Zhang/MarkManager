@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clazz.cs" />
+    <Compile Include="Course.cs" />
     <Compile Include="Teacher.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="DBHelper.cs" />

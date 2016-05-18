@@ -9,86 +9,65 @@
 //------------------------------------------------------------------------------
 
 namespace MarkManager.ServiceReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IService")]
     public interface IService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        MarkManager.ServiceReference.CompositeType GetDataUsingDataContract(MarkManager.ServiceReference.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<MarkManager.ServiceReference.CompositeType> GetDataUsingDataContractAsync(MarkManager.ServiceReference.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
         int Login(string username, string password, short type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
         System.Threading.Tasks.Task<int> LoginAsync(string username, string password, short type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStudents", ReplyAction="http://tempuri.org/IService/GetStudentsResponse")]
+        Model.Student[] GetStudents();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStudents", ReplyAction="http://tempuri.org/IService/GetStudentsResponse")]
+        System.Threading.Tasks.Task<Model.Student[]> GetStudentsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateStudent", ReplyAction="http://tempuri.org/IService/UpdateStudentResponse")]
+        int UpdateStudent(Model.Student student);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateStudent", ReplyAction="http://tempuri.org/IService/UpdateStudentResponse")]
+        System.Threading.Tasks.Task<int> UpdateStudentAsync(Model.Student student);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStudent", ReplyAction="http://tempuri.org/IService/DeleteStudentResponse")]
+        int DeleteStudent(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStudent", ReplyAction="http://tempuri.org/IService/DeleteStudentResponse")]
+        System.Threading.Tasks.Task<int> DeleteStudentAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindStudent", ReplyAction="http://tempuri.org/IService/FindStudentResponse")]
+        Model.Student[] FindStudent(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindStudent", ReplyAction="http://tempuri.org/IService/FindStudentResponse")]
+        System.Threading.Tasks.Task<Model.Student[]> FindStudentAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTeachers", ReplyAction="http://tempuri.org/IService/GetTeachersResponse")]
+        Model.Teacher[] GetTeachers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTeachers", ReplyAction="http://tempuri.org/IService/GetTeachersResponse")]
+        System.Threading.Tasks.Task<Model.Teacher[]> GetTeachersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateTeacher", ReplyAction="http://tempuri.org/IService/UpdateTeacherResponse")]
+        int UpdateTeacher(Model.Teacher teacher);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateTeacher", ReplyAction="http://tempuri.org/IService/UpdateTeacherResponse")]
+        System.Threading.Tasks.Task<int> UpdateTeacherAsync(Model.Teacher teacher);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteTeacher", ReplyAction="http://tempuri.org/IService/DeleteTeacherResponse")]
+        int DeleteTeacher(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteTeacher", ReplyAction="http://tempuri.org/IService/DeleteTeacherResponse")]
+        System.Threading.Tasks.Task<int> DeleteTeacherAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindTeachert", ReplyAction="http://tempuri.org/IService/FindTeachertResponse")]
+        Model.Teacher[] FindTeachert(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindTeachert", ReplyAction="http://tempuri.org/IService/FindTeachertResponse")]
+        System.Threading.Tasks.Task<Model.Teacher[]> FindTeachertAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClazzs", ReplyAction="http://tempuri.org/IService/GetClazzsResponse")]
         Model.Clazz[] GetClazzs();
@@ -113,6 +92,30 @@ namespace MarkManager.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindClazz", ReplyAction="http://tempuri.org/IService/FindClazzResponse")]
         System.Threading.Tasks.Task<Model.Clazz[]> FindClazzAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCourses", ReplyAction="http://tempuri.org/IService/GetCoursesResponse")]
+        Model.Course[] GetCourses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCourses", ReplyAction="http://tempuri.org/IService/GetCoursesResponse")]
+        System.Threading.Tasks.Task<Model.Course[]> GetCoursesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateCourse", ReplyAction="http://tempuri.org/IService/UpdateCourseResponse")]
+        int UpdateCourse(Model.Course course);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateCourse", ReplyAction="http://tempuri.org/IService/UpdateCourseResponse")]
+        System.Threading.Tasks.Task<int> UpdateCourseAsync(Model.Course course);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteCourse", ReplyAction="http://tempuri.org/IService/DeleteCourseResponse")]
+        int DeleteCourse(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteCourse", ReplyAction="http://tempuri.org/IService/DeleteCourseResponse")]
+        System.Threading.Tasks.Task<int> DeleteCourseAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindCourse", ReplyAction="http://tempuri.org/IService/FindCourseResponse")]
+        Model.Course[] FindCourse(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindCourse", ReplyAction="http://tempuri.org/IService/FindCourseResponse")]
+        System.Threading.Tasks.Task<Model.Course[]> FindCourseAsync(string name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -142,20 +145,76 @@ namespace MarkManager.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public MarkManager.ServiceReference.CompositeType GetDataUsingDataContract(MarkManager.ServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<MarkManager.ServiceReference.CompositeType> GetDataUsingDataContractAsync(MarkManager.ServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
-        }
-        
         public int Login(string username, string password, short type) {
             return base.Channel.Login(username, password, type);
         }
         
         public System.Threading.Tasks.Task<int> LoginAsync(string username, string password, short type) {
             return base.Channel.LoginAsync(username, password, type);
+        }
+        
+        public Model.Student[] GetStudents() {
+            return base.Channel.GetStudents();
+        }
+        
+        public System.Threading.Tasks.Task<Model.Student[]> GetStudentsAsync() {
+            return base.Channel.GetStudentsAsync();
+        }
+        
+        public int UpdateStudent(Model.Student student) {
+            return base.Channel.UpdateStudent(student);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateStudentAsync(Model.Student student) {
+            return base.Channel.UpdateStudentAsync(student);
+        }
+        
+        public int DeleteStudent(int id) {
+            return base.Channel.DeleteStudent(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteStudentAsync(int id) {
+            return base.Channel.DeleteStudentAsync(id);
+        }
+        
+        public Model.Student[] FindStudent(string name) {
+            return base.Channel.FindStudent(name);
+        }
+        
+        public System.Threading.Tasks.Task<Model.Student[]> FindStudentAsync(string name) {
+            return base.Channel.FindStudentAsync(name);
+        }
+        
+        public Model.Teacher[] GetTeachers() {
+            return base.Channel.GetTeachers();
+        }
+        
+        public System.Threading.Tasks.Task<Model.Teacher[]> GetTeachersAsync() {
+            return base.Channel.GetTeachersAsync();
+        }
+        
+        public int UpdateTeacher(Model.Teacher teacher) {
+            return base.Channel.UpdateTeacher(teacher);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTeacherAsync(Model.Teacher teacher) {
+            return base.Channel.UpdateTeacherAsync(teacher);
+        }
+        
+        public int DeleteTeacher(int id) {
+            return base.Channel.DeleteTeacher(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteTeacherAsync(int id) {
+            return base.Channel.DeleteTeacherAsync(id);
+        }
+        
+        public Model.Teacher[] FindTeachert(string name) {
+            return base.Channel.FindTeachert(name);
+        }
+        
+        public System.Threading.Tasks.Task<Model.Teacher[]> FindTeachertAsync(string name) {
+            return base.Channel.FindTeachertAsync(name);
         }
         
         public Model.Clazz[] GetClazzs() {
@@ -188,6 +247,38 @@ namespace MarkManager.ServiceReference {
         
         public System.Threading.Tasks.Task<Model.Clazz[]> FindClazzAsync(string name) {
             return base.Channel.FindClazzAsync(name);
+        }
+        
+        public Model.Course[] GetCourses() {
+            return base.Channel.GetCourses();
+        }
+        
+        public System.Threading.Tasks.Task<Model.Course[]> GetCoursesAsync() {
+            return base.Channel.GetCoursesAsync();
+        }
+        
+        public int UpdateCourse(Model.Course course) {
+            return base.Channel.UpdateCourse(course);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateCourseAsync(Model.Course course) {
+            return base.Channel.UpdateCourseAsync(course);
+        }
+        
+        public int DeleteCourse(int id) {
+            return base.Channel.DeleteCourse(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteCourseAsync(int id) {
+            return base.Channel.DeleteCourseAsync(id);
+        }
+        
+        public Model.Course[] FindCourse(string name) {
+            return base.Channel.FindCourse(name);
+        }
+        
+        public System.Threading.Tasks.Task<Model.Course[]> FindCourseAsync(string name) {
+            return base.Channel.FindCourseAsync(name);
         }
     }
 }

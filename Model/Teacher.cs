@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Student
+    public class Teacher
     {
         public int id { set; get; }
         public String name { set; get; }
         public String password { set; get; }
-        public String email { set; get; }
-        public String sex { set; get; }
-        public Clazz clazz { set; get; }
+        public String tel { set; get; }
+        public short sex { set; get; }
+
     }
 }
