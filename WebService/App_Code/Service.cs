@@ -59,6 +59,11 @@ public class Service : IService
     {
         return DAL.Student.findStudent(name);
     }
+
+    public Student GetStudentById(int id)
+    {
+        return DAL.Student.getStudentById(id);
+    }
     #endregion
 
     #region 老师接口 
@@ -84,9 +89,13 @@ public class Service : IService
         return DAL.Teacher.deleteTeacher(id);
     }
 
-    public List<Teacher> FindTeachert(string name)
+    public List<Teacher> FindTeacher(string name)
     {
         return DAL.Teacher.findTeacher(name);
+    }
+    public Teacher GetTeacherById(int id)
+    {
+        return DAL.Teacher.getTeacherById(id);
     }
     #endregion
 
@@ -117,8 +126,21 @@ public class Service : IService
     {
         return DAL.Clazz.findClazz(name);
     }
+
+    public int GetClazzIdByName(String name)
+    {
+        List<Model.Clazz> result = DAL.Clazz.findClazz(name);
+        if (result.Count > 0)
+        {
+            return result[0].id;
+        }
+        else
+        {
+            return 0;
+        }
+    }
     #endregion
- 
+
     #region 课程接口
     public List<Course> GetCourses()
     {
@@ -147,5 +169,42 @@ public class Service : IService
         return DAL.Course.findCourse(name);
     }
 
+    public int GetCourseIdByName(string name)
+    {
+        List<Model.Course> result = DAL.Course.findCourse(name);
+        if (result.Count > 0)
+        {
+            return result[0].id;
+        }
+        else
+        {
+            return 0;
+        }
+    }
     #endregion
+
+    public List<Teacher> GetLessons(int student_id)
+    {
+        return DAL.Mark.getLessons(student_id);
+    }
+
+    public List<Mark> GetMarksByStudentId(int student_id)
+    {
+        return DAL.Mark.getMarksByStudentId(student_id);
+    }
+
+    public List<Mark> GetMarksByTeacherId(int teacher_id)
+    {
+        return DAL.Mark.getMarksByTeacherId(teacher_id);
+    }
+
+    public int AddMark(int student_id,int teacher_id)
+    {
+        return DAL.Mark.addMark(student_id, teacher_id);
+    }
+
+    public int UpdateMark(Model.Mark mark)
+    {
+        return DAL.Mark.updateMark(mark);
+    }
 }

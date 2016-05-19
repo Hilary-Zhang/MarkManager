@@ -26,6 +26,9 @@ public interface IService
     List<Model.Student> FindStudent(String name);
 
     [OperationContract]
+    Model.Student GetStudentById(int id);
+
+    [OperationContract]
     List<Model.Teacher> GetTeachers();
 
     [OperationContract]
@@ -35,10 +38,16 @@ public interface IService
     int DeleteTeacher(int id);
 
     [OperationContract]
-    List<Model.Teacher> FindTeachert(String name);
+    List<Model.Teacher> FindTeacher(String name);
+
+    [OperationContract]
+    Model.Teacher GetTeacherById(int id);
 
     [OperationContract]
     List<Model.Clazz> GetClazzs();
+
+    [OperationContract]
+    int GetClazzIdByName(String name);
 
     [OperationContract]
     int UpdateClazz(Model.Clazz clazz);
@@ -53,6 +62,9 @@ public interface IService
     List<Model.Course> GetCourses();
 
     [OperationContract]
+    int GetCourseIdByName(String name);
+
+    [OperationContract]
     int UpdateCourse(Model.Course course);
 
     [OperationContract]
@@ -61,5 +73,18 @@ public interface IService
     [OperationContract]
     List<Model.Course> FindCourse(String name);
 
+    [OperationContract]
+    List<Model.Teacher> GetLessons(int student_id);
 
+    [OperationContract]
+    List<Model.Mark> GetMarksByStudentId(int student_id);
+
+    [OperationContract]
+    List<Model.Mark> GetMarksByTeacherId(int teacher_id);
+
+    [OperationContract]
+    int AddMark(int student_id, int teacher_id);
+
+    [OperationContract]
+    int UpdateMark(Model.Mark mark);
 }

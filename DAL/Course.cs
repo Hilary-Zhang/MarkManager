@@ -17,7 +17,7 @@ namespace DAL
             {
                 Model.Course model = new Model.Course();
                 model.id = reader.GetInt32(0);
-                model.name = reader.GetString(1);
+                model.name = reader.GetString(1).Trim();
                 result.Add(model);
             }
             return result;
@@ -25,12 +25,12 @@ namespace DAL
 
         public static int updateCourse(Model.Course course)
         {
-            return DBHelper.execute("UPDATE [Course] SET [name]=N'" + course.name + "' WHERE [id]=" + course.id);
+            return DBHelper.execute("UPDATE [Course] SET [name]=N'" + course.name.Trim() + "' WHERE [id]=" + course.id);
         }
 
         public static int insertCourse(Model.Course course)
         {
-            return DBHelper.execute(String.Format("INSERT INTO [Course] ([name]) VALUES (N'{0}')", course.name));
+            return DBHelper.execute(String.Format("INSERT INTO [Course] ([name]) VALUES (N'{0}')", course.name.Trim()));
         }
 
         public static int deleteCourse(int id)
@@ -41,12 +41,12 @@ namespace DAL
         public static List<Model.Course> findCourse(String name)
         {
             List<Model.Course> result = new List<Model.Course>();
-            SqlDataReader reader = DBHelper.query("SELECT [id],[name] FROM [Course] WHERE [name] LIKE N'%" + name + "%'");
+            SqlDataReader reader = DBHelper.query("SELECT [id],[name] FROM [Course] WHERE [name] LIKE N'%" + name.Trim() + "%'");
             while (reader.Read())
             {
                 Model.Course model = new Model.Course();
                 model.id = reader.GetInt32(0);
-                model.name = reader.GetString(1);
+                model.name = reader.GetString(1).Trim();
                 result.Add(model);
             }
             return result;

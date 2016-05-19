@@ -56,8 +56,12 @@ namespace MarkManager
             switch(type.SelectedIndex)
             {
                 case 0:
+                    new StudentWindow(id).Show();
+                    Close();
                     break;
                 case 1:
+                    new TeacherWindow(id).Show();
+                    Close();
                     break;
                 case 2:
                     new AdminWindow().Show();

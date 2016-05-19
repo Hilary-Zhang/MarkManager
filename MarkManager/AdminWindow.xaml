@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MarkManager"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="window" x:Class="MarkManager.AdminWindow"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="410" Width="700">
+        Title="学生成绩管理系统-管理员端" Height="410" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -23,20 +23,33 @@
                             <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="学生ID" SortDirection="Ascending"/>
                             <DataGridTextColumn Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="学生姓名"/>
                             <DataGridComboBoxColumn Header="性别">
-                                <DataGridComboBoxColumn.EditingElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding Path=sex,ElementName=window}" />
-                                        <Setter Property="SelectedValue" Value="{Binding Path=sex}" />
-                                    </Style>
-                                </DataGridComboBoxColumn.EditingElementStyle>
                                 <DataGridComboBoxColumn.ElementStyle>
                                     <Style TargetType="ComboBox">
                                         <Setter Property="ItemsSource" Value="{Binding Path=sex,ElementName=window}" />
                                         <Setter Property="SelectedValue" Value="{Binding Path=sex}" />
                                     </Style>
                                 </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding Path=sex,ElementName=window}" />
+                                        <Setter Property="SelectedValue" Value="{Binding Path=sex}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
                             </DataGridComboBoxColumn>
-                            <DataGridComboBoxColumn ClipboardContentBinding="{x:Null}" SelectedValueBinding="{Binding clazz}" SelectedItemBinding="{x:Null}" TextBinding="{x:Null}" Header="所在班级"/>
+                            <DataGridComboBoxColumn Header="所在班级">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding Path=clazz,ElementName=window}" />
+                                        <Setter Property="SelectedValue" Value="{Binding Path=clazz_name}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding Path=clazz,ElementName=window}" />
+                                        <Setter Property="SelectedValue" Value="{Binding Path=clazz_name}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
                             <DataGridTextColumn Binding="{Binding password}" ClipboardContentBinding="{x:Null}" Header="登录密码"/>
                             <DataGridTextColumn Binding="{Binding email}" ClipboardContentBinding="{x:Null}" Header="联系方式"/>
 
@@ -52,14 +65,38 @@
                     <Button x:Name="teacher_find" Content="查找" HorizontalAlignment="Left" Margin="580,4,0,0" VerticalAlignment="Top" Width="74" Click="teacher_find_Click" />
                     <DataGrid x:Name="teacher_grid" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Center" Height="304" Width="654" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-
                             <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="教师ID"/>
                             <DataGridTextColumn Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="教师姓名"/>
-                            <DataGridComboBoxColumn ClipboardContentBinding="{x:Null}" Header="性别" SelectedValueBinding="{x:Null}" SelectedItemBinding="{Binding sex}" TextBinding="{x:Null}"/>
-                            <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="职称"/>
+                            <DataGridComboBoxColumn Header="性别">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding Path=sex,ElementName=window}" />
+                                        <Setter Property="SelectedValue" Value="{Binding Path=sex}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding Path=sex,ElementName=window}" />
+                                        <Setter Property="SelectedValue" Value="{Binding Path=sex}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
                             <DataGridTextColumn Binding="{Binding password}" ClipboardContentBinding="{x:Null}" Header="密码"/>
                             <DataGridTextColumn Binding="{Binding tel}" ClipboardContentBinding="{x:Null}" Header="联系方式"/>
-
+                            <DataGridComboBoxColumn Header="所教课程">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding Path=course,ElementName=window}" />
+                                        <Setter Property="SelectedValue" Value="{Binding Path=course_name}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding Path=course,ElementName=window}" />
+                                        <Setter Property="SelectedValue" Value="{Binding Path=course_name}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <TextBox x:Name="teacher_name" HorizontalAlignment="Left" Height="23" Margin="449,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Student
+    public class Lesson
     {
-        public int id { set; get; }
-        public String name { set; get; }
-        public String password { set; get; }
-        public String email { set; get; }
-        public String sex { set; get; }
+        public Teacher teacher { set; get; }
         public Clazz clazz { set; get; }
+        public String teacher_name { set; get; }
+        public String course_name { set; get; }
         public String clazz_name { set; get; }
     }
 }

@@ -12,7 +12,7 @@ namespace DAL
     {
         public static int checkPassword(String username,String password)
         {
-            SqlDataReader reader = DBHelper.query("SELECT TOP 1 [id],[password] FROM [admin] WHERE name='" + username + "'");
+            SqlDataReader reader = DBHelper.query("SELECT TOP 1 [id],[password] FROM [admin] WHERE name=N'" + username + "'");
             if(reader.Read())
             {
                 if (reader.GetSqlString(1) == password)

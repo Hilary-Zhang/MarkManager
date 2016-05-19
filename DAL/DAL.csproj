@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -43,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Clazz.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="Mark.cs" />
     <Compile Include="Teacher.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="DBHelper.cs" />

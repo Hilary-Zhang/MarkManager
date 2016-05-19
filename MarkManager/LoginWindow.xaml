@@ -8,17 +8,17 @@
         WindowStartupLocation="CenterScreen" 
         Title="LoginWindow" Height="300" Width="500">
     <Grid>
-        <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="220,50,0,0" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="password" HorizontalAlignment="Left" Height="23" Margin="220,100,0,0" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="220,50,0,0" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="password" HorizontalAlignment="Left" Height="23" Margin="220,100,0,0" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="type" HorizontalAlignment="Left" Margin="220,150,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="2">
             <ComboBoxItem Content="学生"/>
             <ComboBoxItem Content="教师"/>
             <ComboBoxItem Content="管理员"/>
         </ComboBox>
-        <Button x:Name="command" Content="登录" HorizontalAlignment="Left" Margin="180,200,0,0" VerticalAlignment="Top" Width="150" Click="command_Click" Height="25" Background="#FF00F3FF"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="150,50,0,0" TextWrapping="Wrap" Text="用户名:" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="150,100,0,0" TextWrapping="Wrap" Text="密  码:" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="150,150,0,0" TextWrapping="Wrap" Text="类  型:" VerticalAlignment="Top"/>
+        <Button x:Name="command" Content="登录" HorizontalAlignment="Left" Margin="220,200,0,0" VerticalAlignment="Top" Width="120" Click="command_Click" Height="25" Background="#FF00F3FF"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="160,54,0,0" TextWrapping="Wrap" Text="用户名:" VerticalAlignment="Top" Height="15"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="160,104,0,0" TextWrapping="Wrap" Text="密  码:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="160,154,0,0" TextWrapping="Wrap" Text="类  型:" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

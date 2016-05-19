@@ -12,7 +12,8 @@ namespace Model
         public String name { set; get; }
         public String password { set; get; }
         public String tel { set; get; }
-        public short sex { set; get; }
-
+        public String sex { set; get; }
+        public Course course { set; get; }
+        public String course_name{set;get;}
     }
 }

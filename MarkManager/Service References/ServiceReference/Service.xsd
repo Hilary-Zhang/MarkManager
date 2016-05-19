@@ -9,11 +9,12 @@
   <xs:complexType name="Student">
     <xs:sequence>
       <xs:element minOccurs="0" name="clazz" nillable="true" type="tns:Clazz" />
+      <xs:element minOccurs="0" name="clazz_name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="id" type="xs:int" />
       <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="sex" type="xs:short" />
+      <xs:element minOccurs="0" name="sex" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Student" nillable="true" type="tns:Student" />
@@ -32,14 +33,23 @@
   <xs:element name="ArrayOfTeacher" nillable="true" type="tns:ArrayOfTeacher" />
   <xs:complexType name="Teacher">
     <xs:sequence>
+      <xs:element minOccurs="0" name="course" nillable="true" type="tns:Course" />
+      <xs:element minOccurs="0" name="course_name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="id" type="xs:int" />
       <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="sex" type="xs:short" />
+      <xs:element minOccurs="0" name="sex" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="tel" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Teacher" nillable="true" type="tns:Teacher" />
+  <xs:complexType name="Course">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Course" nillable="true" type="tns:Course" />
   <xs:complexType name="ArrayOfClazz">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Clazz" nillable="true" type="tns:Clazz" />
@@ -52,11 +62,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCourse" nillable="true" type="tns:ArrayOfCourse" />
-  <xs:complexType name="Course">
+  <xs:complexType name="ArrayOfMark">
     <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Mark" nillable="true" type="tns:Mark" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Course" nillable="true" type="tns:Course" />
+  <xs:element name="ArrayOfMark" nillable="true" type="tns:ArrayOfMark" />
+  <xs:complexType name="Mark">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="course_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mark" type="xs:short" />
+      <xs:element minOccurs="0" name="student_id" type="xs:int" />
+      <xs:element minOccurs="0" name="student_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="teacher_id" type="xs:int" />
+      <xs:element minOccurs="0" name="teacher_name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Mark" nillable="true" type="tns:Mark" />
 </xs:schema>

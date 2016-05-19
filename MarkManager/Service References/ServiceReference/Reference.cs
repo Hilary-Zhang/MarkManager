@@ -45,6 +45,12 @@ namespace MarkManager.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindStudent", ReplyAction="http://tempuri.org/IService/FindStudentResponse")]
         System.Threading.Tasks.Task<Model.Student[]> FindStudentAsync(string name);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStudentById", ReplyAction="http://tempuri.org/IService/GetStudentByIdResponse")]
+        Model.Student GetStudentById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStudentById", ReplyAction="http://tempuri.org/IService/GetStudentByIdResponse")]
+        System.Threading.Tasks.Task<Model.Student> GetStudentByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTeachers", ReplyAction="http://tempuri.org/IService/GetTeachersResponse")]
         Model.Teacher[] GetTeachers();
         
@@ -63,17 +69,29 @@ namespace MarkManager.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteTeacher", ReplyAction="http://tempuri.org/IService/DeleteTeacherResponse")]
         System.Threading.Tasks.Task<int> DeleteTeacherAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindTeachert", ReplyAction="http://tempuri.org/IService/FindTeachertResponse")]
-        Model.Teacher[] FindTeachert(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindTeacher", ReplyAction="http://tempuri.org/IService/FindTeacherResponse")]
+        Model.Teacher[] FindTeacher(string name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindTeachert", ReplyAction="http://tempuri.org/IService/FindTeachertResponse")]
-        System.Threading.Tasks.Task<Model.Teacher[]> FindTeachertAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindTeacher", ReplyAction="http://tempuri.org/IService/FindTeacherResponse")]
+        System.Threading.Tasks.Task<Model.Teacher[]> FindTeacherAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTeacherById", ReplyAction="http://tempuri.org/IService/GetTeacherByIdResponse")]
+        Model.Teacher GetTeacherById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTeacherById", ReplyAction="http://tempuri.org/IService/GetTeacherByIdResponse")]
+        System.Threading.Tasks.Task<Model.Teacher> GetTeacherByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClazzs", ReplyAction="http://tempuri.org/IService/GetClazzsResponse")]
         Model.Clazz[] GetClazzs();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClazzs", ReplyAction="http://tempuri.org/IService/GetClazzsResponse")]
         System.Threading.Tasks.Task<Model.Clazz[]> GetClazzsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClazzIdByName", ReplyAction="http://tempuri.org/IService/GetClazzIdByNameResponse")]
+        int GetClazzIdByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClazzIdByName", ReplyAction="http://tempuri.org/IService/GetClazzIdByNameResponse")]
+        System.Threading.Tasks.Task<int> GetClazzIdByNameAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateClazz", ReplyAction="http://tempuri.org/IService/UpdateClazzResponse")]
         int UpdateClazz(Model.Clazz clazz);
@@ -99,6 +117,12 @@ namespace MarkManager.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCourses", ReplyAction="http://tempuri.org/IService/GetCoursesResponse")]
         System.Threading.Tasks.Task<Model.Course[]> GetCoursesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCourseIdByName", ReplyAction="http://tempuri.org/IService/GetCourseIdByNameResponse")]
+        int GetCourseIdByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCourseIdByName", ReplyAction="http://tempuri.org/IService/GetCourseIdByNameResponse")]
+        System.Threading.Tasks.Task<int> GetCourseIdByNameAsync(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateCourse", ReplyAction="http://tempuri.org/IService/UpdateCourseResponse")]
         int UpdateCourse(Model.Course course);
         
@@ -116,6 +140,36 @@ namespace MarkManager.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FindCourse", ReplyAction="http://tempuri.org/IService/FindCourseResponse")]
         System.Threading.Tasks.Task<Model.Course[]> FindCourseAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetLessons", ReplyAction="http://tempuri.org/IService/GetLessonsResponse")]
+        Model.Teacher[] GetLessons(int student_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetLessons", ReplyAction="http://tempuri.org/IService/GetLessonsResponse")]
+        System.Threading.Tasks.Task<Model.Teacher[]> GetLessonsAsync(int student_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMarksByStudentId", ReplyAction="http://tempuri.org/IService/GetMarksByStudentIdResponse")]
+        Model.Mark[] GetMarksByStudentId(int student_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMarksByStudentId", ReplyAction="http://tempuri.org/IService/GetMarksByStudentIdResponse")]
+        System.Threading.Tasks.Task<Model.Mark[]> GetMarksByStudentIdAsync(int student_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMarksByTeacherId", ReplyAction="http://tempuri.org/IService/GetMarksByTeacherIdResponse")]
+        Model.Mark[] GetMarksByTeacherId(int teacher_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMarksByTeacherId", ReplyAction="http://tempuri.org/IService/GetMarksByTeacherIdResponse")]
+        System.Threading.Tasks.Task<Model.Mark[]> GetMarksByTeacherIdAsync(int teacher_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddMark", ReplyAction="http://tempuri.org/IService/AddMarkResponse")]
+        int AddMark(int student_id, int teacher_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddMark", ReplyAction="http://tempuri.org/IService/AddMarkResponse")]
+        System.Threading.Tasks.Task<int> AddMarkAsync(int student_id, int teacher_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateMark", ReplyAction="http://tempuri.org/IService/UpdateMarkResponse")]
+        int UpdateMark(Model.Mark mark);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateMark", ReplyAction="http://tempuri.org/IService/UpdateMarkResponse")]
+        System.Threading.Tasks.Task<int> UpdateMarkAsync(Model.Mark mark);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -185,6 +239,14 @@ namespace MarkManager.ServiceReference {
             return base.Channel.FindStudentAsync(name);
         }
         
+        public Model.Student GetStudentById(int id) {
+            return base.Channel.GetStudentById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Model.Student> GetStudentByIdAsync(int id) {
+            return base.Channel.GetStudentByIdAsync(id);
+        }
+        
         public Model.Teacher[] GetTeachers() {
             return base.Channel.GetTeachers();
         }
@@ -209,12 +271,20 @@ namespace MarkManager.ServiceReference {
             return base.Channel.DeleteTeacherAsync(id);
         }
         
-        public Model.Teacher[] FindTeachert(string name) {
-            return base.Channel.FindTeachert(name);
+        public Model.Teacher[] FindTeacher(string name) {
+            return base.Channel.FindTeacher(name);
         }
         
-        public System.Threading.Tasks.Task<Model.Teacher[]> FindTeachertAsync(string name) {
-            return base.Channel.FindTeachertAsync(name);
+        public System.Threading.Tasks.Task<Model.Teacher[]> FindTeacherAsync(string name) {
+            return base.Channel.FindTeacherAsync(name);
+        }
+        
+        public Model.Teacher GetTeacherById(int id) {
+            return base.Channel.GetTeacherById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Model.Teacher> GetTeacherByIdAsync(int id) {
+            return base.Channel.GetTeacherByIdAsync(id);
         }
         
         public Model.Clazz[] GetClazzs() {
@@ -223,6 +293,14 @@ namespace MarkManager.ServiceReference {
         
         public System.Threading.Tasks.Task<Model.Clazz[]> GetClazzsAsync() {
             return base.Channel.GetClazzsAsync();
+        }
+        
+        public int GetClazzIdByName(string name) {
+            return base.Channel.GetClazzIdByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetClazzIdByNameAsync(string name) {
+            return base.Channel.GetClazzIdByNameAsync(name);
         }
         
         public int UpdateClazz(Model.Clazz clazz) {
@@ -257,6 +335,14 @@ namespace MarkManager.ServiceReference {
             return base.Channel.GetCoursesAsync();
         }
         
+        public int GetCourseIdByName(string name) {
+            return base.Channel.GetCourseIdByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCourseIdByNameAsync(string name) {
+            return base.Channel.GetCourseIdByNameAsync(name);
+        }
+        
         public int UpdateCourse(Model.Course course) {
             return base.Channel.UpdateCourse(course);
         }
@@ -279,6 +365,46 @@ namespace MarkManager.ServiceReference {
         
         public System.Threading.Tasks.Task<Model.Course[]> FindCourseAsync(string name) {
             return base.Channel.FindCourseAsync(name);
+        }
+        
+        public Model.Teacher[] GetLessons(int student_id) {
+            return base.Channel.GetLessons(student_id);
+        }
+        
+        public System.Threading.Tasks.Task<Model.Teacher[]> GetLessonsAsync(int student_id) {
+            return base.Channel.GetLessonsAsync(student_id);
+        }
+        
+        public Model.Mark[] GetMarksByStudentId(int student_id) {
+            return base.Channel.GetMarksByStudentId(student_id);
+        }
+        
+        public System.Threading.Tasks.Task<Model.Mark[]> GetMarksByStudentIdAsync(int student_id) {
+            return base.Channel.GetMarksByStudentIdAsync(student_id);
+        }
+        
+        public Model.Mark[] GetMarksByTeacherId(int teacher_id) {
+            return base.Channel.GetMarksByTeacherId(teacher_id);
+        }
+        
+        public System.Threading.Tasks.Task<Model.Mark[]> GetMarksByTeacherIdAsync(int teacher_id) {
+            return base.Channel.GetMarksByTeacherIdAsync(teacher_id);
+        }
+        
+        public int AddMark(int student_id, int teacher_id) {
+            return base.Channel.AddMark(student_id, teacher_id);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddMarkAsync(int student_id, int teacher_id) {
+            return base.Channel.AddMarkAsync(student_id, teacher_id);
+        }
+        
+        public int UpdateMark(Model.Mark mark) {
+            return base.Channel.UpdateMark(mark);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateMarkAsync(Model.Mark mark) {
+            return base.Channel.UpdateMarkAsync(mark);
         }
     }
 }

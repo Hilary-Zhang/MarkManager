@@ -17,7 +17,7 @@ namespace DAL
             {
                 Model.Clazz model = new Model.Clazz();
                 model.id = reader.GetInt32(0);
-                model.name = reader.GetString(1);
+                model.name = reader.GetString(1).Trim();
                 result.Add(model);
             }
             return result;
@@ -25,12 +25,12 @@ namespace DAL
 
         public static int updateClazz(Model.Clazz clazz)
         {
-            return DBHelper.execute("UPDATE [clazz] SET [name]=N'" + clazz.name + "' WHERE [id]=" + clazz.id);
+            return DBHelper.execute("UPDATE [clazz] SET [name]=N'" + clazz.name.Trim() + "' WHERE [id]=" + clazz.id);
         }
 
         public static int insertClazz(Model.Clazz clazz)
         {
-            return DBHelper.execute(String.Format("INSERT INTO [clazz] ([name]) VALUES (N'{0}')", clazz.name));
+            return DBHelper.execute(String.Format("INSERT INTO [clazz] ([name]) VALUES (N'{0}')", clazz.name.Trim()));
         }
 
         public static int deleteClazz(int id)
@@ -41,12 +41,12 @@ namespace DAL
         public static List<Model.Clazz> findClazz(String name)
         {
             List<Model.Clazz> result = new List<Model.Clazz>();
-            SqlDataReader reader=DBHelper.query("SELECT [id],[name] FROM [clazz] WHERE [name] LIKE N'%"+name+"%'");
+            SqlDataReader reader=DBHelper.query("SELECT [id],[name] FROM [clazz] WHERE [name] LIKE N'%"+name.Trim()+"%'");
             while (reader.Read())
             {
                 Model.Clazz model = new Model.Clazz();
                 model.id = reader.GetInt32(0);
-                model.name = reader.GetString(1);
+                model.name = reader.GetString(1).Trim();
                 result.Add(model);
             }
             return result;

@@ -116,6 +116,8 @@
     </EmbeddedResource>
     <None Include="Properties\DataSources\Model.Clazz.datasource" />
     <None Include="Properties\DataSources\Model.Course.datasource" />
+    <None Include="Properties\DataSources\Model.Lesson.datasource" />
+    <None Include="Properties\DataSources\Model.Mark.datasource" />
     <None Include="Properties\DataSources\Model.Student.datasource" />
     <None Include="Properties\DataSources\Model.Teacher.datasource" />
     <None Include="Properties\Settings.settings">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarkManager.ServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,58 @@ namespace MarkManager
     /// </summary>
     public partial class TeacherWindow : Window
     {
-        public TeacherWindow()
+        private int teacher_id;
+        private ServiceClient client;
+        public TeacherWindow(int teacher_id)
         {
+            this.teacher_id = teacher_id;
+            client = new ServiceClient();
             InitializeComponent();
+            initData();
+        }
+
+        private void initData()
+        {
+            Model.Teacher teacher = client.GetTeacherById(teacher_id);
+            name.Text = teacher.name;
+            sex.Text = teacher.sex;
+            course.Text = teacher.course_name;
+            password.Text = teacher.password;
+            tel.Text = teacher.tel;
+
+            teacher_grid.ItemsSource = client.GetMarksByTeacherId(teacher_id);
+        }
+
+        private void change_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Teacher model = new Model.Teacher();
+            model.tel = tel.Text;
+            model.password = password.Text;
+            model.id = teacher_id;
+            if (client.UpdateTeacher(model) > 0)
+            {
+                MessageBox.Show("修改成功");
+            }
+            else
+            {
+                MessageBox.Show("修改失败");
+            }
+        }
+
+        private void teacher_save_Click(object sender, RoutedEventArgs e)
+        {
+            if (teacher_grid.SelectedIndex >= 0)
+            {
+                Model.Mark model = (Model.Mark)teacher_grid.SelectedItem;
+                if(client.UpdateMark(model)>0)
+                {
+                    MessageBox.Show("保存成功");
+                }
+                else
+                {
+                    MessageBox.Show("保存失败");
+                }
+            }
         }
     }
 }
