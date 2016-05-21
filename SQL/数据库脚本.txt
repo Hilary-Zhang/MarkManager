@@ -1,0 +1,41 @@
+CREATE TABLE [dbo].[Admin] (
+    [id]       INT        IDENTITY (1, 1) NOT NULL,
+    [name]     NCHAR (10) NOT NULL,
+    [password] CHAR (32)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+CREATE TABLE [dbo].[Clazz] (
+    [Id]   INT           IDENTITY (1, 1) NOT NULL,
+    [name] NVARCHAR (10) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+CREATE TABLE [dbo].[Course] (
+    [id]   INT           IDENTITY (1, 1) NOT NULL,
+    [name] NVARCHAR (10) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+CREATE TABLE [dbo].[Mark] (
+    [student_id] INT      NOT NULL,
+    [teacher_id] INT      NOT NULL,
+    [mark]       SMALLINT DEFAULT ((0)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([student_id] ASC, [teacher_id] ASC)
+);
+CREATE TABLE [dbo].[Student] (
+    [Id]       INT           IDENTITY (1, 1) NOT NULL,
+    [name]     NVARCHAR (10) NOT NULL,
+    [password] NVARCHAR (50) NOT NULL,
+    [email]    NVARCHAR (50) NULL,
+    [sex]      NVARCHAR (5)  NULL,
+    [clazz_id] INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([clazz_id]) REFERENCES [dbo].[Clazz] ([Id])
+);
+CREATE TABLE [dbo].[Teacher] (
+    [Id]        INT           IDENTITY (1, 1) NOT NULL,
+    [name]      NVARCHAR (20) NOT NULL,
+    [password]  NVARCHAR (32) NOT NULL,
+    [tel]       NVARCHAR (11) NULL,
+    [sex]       NVARCHAR (5)  NULL,
+    [course_id] INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
