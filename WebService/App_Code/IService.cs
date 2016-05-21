@@ -87,4 +87,13 @@ public interface IService
 
     [OperationContract]
     int UpdateMark(Model.Mark mark);
+
+    [OperationContract]
+    List<Model.Mark> FindStudentMark(int teacher_id,String name);
+
+    [OperationContract]
+    List<Model.Mark> FindTeacherMark(int student_id,String name);
+
+    [OperationContract]
+    List<Model.Teacher> FindCourseMark(int student_id, String name);
 }

@@ -360,4 +360,49 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="FindStudentMark">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="teacher_id" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindStudentMarkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="FindStudentMarkResult" nillable="true" type="q19:ArrayOfMark" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindTeacherMark">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="student_id" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindTeacherMarkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="FindTeacherMarkResult" nillable="true" type="q20:ArrayOfMark" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCourseMark">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="student_id" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCourseMarkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="FindCourseMarkResult" nillable="true" type="q21:ArrayOfTeacher" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -16,9 +16,9 @@ public class Service : IService
     }
 
     #region 登录接口
-    public int Login(string username, string password,short type)
+    public int Login(string username, string password, short type)
     {
-        switch(type)
+        switch (type)
         {
             case 0://学生
                 return DAL.Student.checkPassword(username, password);
@@ -80,7 +80,7 @@ public class Service : IService
         }
         else
         {
-            return DAL.Teacher.updateTeacher(teacher );
+            return DAL.Teacher.updateTeacher(teacher);
         }
     }
 
@@ -198,7 +198,7 @@ public class Service : IService
         return DAL.Mark.getMarksByTeacherId(teacher_id);
     }
 
-    public int AddMark(int student_id,int teacher_id)
+    public int AddMark(int student_id, int teacher_id)
     {
         return DAL.Mark.addMark(student_id, teacher_id);
     }
@@ -206,5 +206,20 @@ public class Service : IService
     public int UpdateMark(Model.Mark mark)
     {
         return DAL.Mark.updateMark(mark);
+    }
+
+    public List<Mark> FindStudentMark(int teacher_id, string name)
+    {
+        return DAL.Mark.findStudentMark(teacher_id, name);
+    }
+
+    public List<Mark> FindTeacherMark(int student_id, string name)
+    {
+        return DAL.Mark.findTeacherMark(student_id, name);
+    }
+
+    public List<Model.Teacher> FindCourseMark(int student_id, String name)
+    {
+        return DAL.Mark.findCourseMark(student_id, name);
     }
 }

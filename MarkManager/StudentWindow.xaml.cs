@@ -76,5 +76,15 @@ namespace MarkManager
                 }
             }
         }
+
+        private void student_find_Click(object sender, RoutedEventArgs e)
+        {
+            student_grid.ItemsSource = client.FindTeacherMark(student_id, student_name.Text);
+        }
+
+        private void course_find_Click(object sender, RoutedEventArgs e)
+        {
+            course_grid.ItemsSource = client.FindCourseMark(student_id, course_name.Text);
+        }
     }
 }

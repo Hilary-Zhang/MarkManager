@@ -29,27 +29,5 @@ namespace DAL
             SqlCommand cmd = new SqlCommand(sql, conn);
             return cmd.ExecuteReader();
         }
-
-        public static int execute(String sql, params SqlParameter[] sqlParams)
-        {
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Clear();
-            foreach (SqlParameter param in sqlParams)
-            {
-                cmd.Parameters.Add(param);
-            }
-            return cmd.ExecuteNonQuery();
-        }
-
-        public static SqlDataReader query(String sql,params SqlParameter[] sqlParams)
-        {
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Clear();
-            foreach(SqlParameter param in sqlParams)
-            {
-                cmd.Parameters.Add(param);
-            }
-            return cmd.ExecuteReader();
-        }
     }
 }

@@ -163,6 +163,24 @@
   <wsdl:message name="IService_UpdateMark_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateMarkResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_FindStudentMark_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindStudentMark" />
+  </wsdl:message>
+  <wsdl:message name="IService_FindStudentMark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindStudentMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_FindTeacherMark_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeacherMark" />
+  </wsdl:message>
+  <wsdl:message name="IService_FindTeacherMark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTeacherMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_FindCourseMark_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindCourseMark" />
+  </wsdl:message>
+  <wsdl:message name="IService_FindCourseMark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindCourseMarkResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Login" message="tns:IService_Login_InputMessage" />
@@ -267,6 +285,18 @@
     <wsdl:operation name="UpdateMark">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateMark" message="tns:IService_UpdateMark_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateMarkResponse" message="tns:IService_UpdateMark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindStudentMark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/FindStudentMark" message="tns:IService_FindStudentMark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/FindStudentMarkResponse" message="tns:IService_FindStudentMark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTeacherMark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/FindTeacherMark" message="tns:IService_FindTeacherMark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/FindTeacherMarkResponse" message="tns:IService_FindTeacherMark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCourseMark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/FindCourseMark" message="tns:IService_FindCourseMark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/FindCourseMarkResponse" message="tns:IService_FindCourseMark_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -498,6 +528,33 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateMark">
       <soap:operation soapAction="http://tempuri.org/IService/UpdateMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindStudentMark">
+      <soap:operation soapAction="http://tempuri.org/IService/FindStudentMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTeacherMark">
+      <soap:operation soapAction="http://tempuri.org/IService/FindTeacherMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCourseMark">
+      <soap:operation soapAction="http://tempuri.org/IService/FindCourseMark" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

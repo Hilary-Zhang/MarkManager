@@ -73,5 +73,10 @@ namespace MarkManager
                 }
             }
         }
+
+        private void teacher_find_Click(object sender, RoutedEventArgs e)
+        {
+            teacher_grid.ItemsSource = new List<Model.Mark >(client.FindStudentMark(teacher_id,student_name.Text));
+        }
     }
 }

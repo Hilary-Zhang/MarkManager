@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MarkManager"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="window" x:Class="MarkManager.AdminWindow"
         mc:Ignorable="d"
+    WindowStartupLocation="CenterScreen" 
         Title="学生成绩管理系统-管理员端" Height="410" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,10 +16,15 @@
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="360" Margin="10,10,0,0" VerticalAlignment="Top" Width="670">
             <TabItem Header="学生管理">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="207*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="452*"/>
+                    </Grid.ColumnDefinitions>
                     <Button x:Name="student_delete" Content="删除" HorizontalAlignment="Left" Margin="90,4,0,0" VerticalAlignment="Top" Width="76" Click="student_delete_Click"/>
                     <Button x:Name="student_save" Content="保存" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="75" Click="student_save_Click"/>
-                    <Button x:Name="student_find" Content="查找" HorizontalAlignment="Left" Margin="580,4,0,0" VerticalAlignment="Top" Width="74" Click="student_find_Click"/>
-                    <DataGrid x:Name="student_grid" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Center" Height="304" Width="654" AutoGenerateColumns="False">
+                    <Button x:Name="student_find" Content="查找" HorizontalAlignment="Left" Margin="368,4,0,0" VerticalAlignment="Top" Width="74" Click="student_find_Click" Grid.Column="2"/>
+                    <DataGrid x:Name="student_grid" HorizontalAlignment="Center" Margin="5,28,5,1" VerticalAlignment="Center" Height="304" Width="654" AutoGenerateColumns="False" Grid.ColumnSpan="3">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="学生ID" SortDirection="Ascending"/>
                             <DataGridTextColumn Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="学生姓名"/>
@@ -55,7 +61,7 @@
 
                         </DataGrid.Columns>
                     </DataGrid>
-                    <TextBox x:Name="student_name" HorizontalAlignment="Left" Height="23" Margin="449,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="student_name" HorizontalAlignment="Left" Height="23" Margin="237,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="教师管理">

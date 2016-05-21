@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarkManager"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
         Title="StudentWindow" Height="410" Width="700">
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="360" Margin="10,10,0,0" VerticalAlignment="Top" Width="670">
@@ -27,7 +28,7 @@
             </TabItem>
             <TabItem Header="课程信息">
                 <Grid>
-                    <Button x:Name="student_find" Content="查找" HorizontalAlignment="Left" Margin="580,4,0,0" VerticalAlignment="Top" Width="74" />
+                    <Button x:Name="student_find" Content="查找" HorizontalAlignment="Left" Margin="580,4,0,0" VerticalAlignment="Top" Width="74" Click="student_find_Click" />
                     <DataGrid x:Name="student_grid" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Center" Height="304" Width="654" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding teacher_name}" ClipboardContentBinding="{x:Null}" Header="授课老师" IsReadOnly="True"/>
@@ -36,12 +37,12 @@
 
                         </DataGrid.Columns>
                     </DataGrid>
-                    <TextBox x:Name="student_course" HorizontalAlignment="Left" Height="23" Margin="449,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="student_name" HorizontalAlignment="Left" Height="23" Margin="449,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
             <TabItem Header="选择课程">
                 <Grid>
-                    <Button x:Name="course_find" Content="查找" HorizontalAlignment="Left" Margin="580,4,0,0" VerticalAlignment="Top" Width="74" />
+                    <Button x:Name="course_find" Content="查找" HorizontalAlignment="Left" Margin="580,0,0,310" VerticalAlignment="Bottom" Width="74" Click="course_find_Click" />
                     <Button x:Name="course_add" Content="选择" HorizontalAlignment="Right" Margin="0,3,585,0" VerticalAlignment="Top" Width="74" Click="course_add_Click" />
                     <DataGrid x:Name="course_grid" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Center" Height="304" Width="654" AutoGenerateColumns="False">
                         <DataGrid.Columns>
